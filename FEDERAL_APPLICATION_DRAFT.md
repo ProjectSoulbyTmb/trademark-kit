@@ -1,74 +1,58 @@
-# Federal Trademark Application Draft (USPTO, filed pro se) — THOTH
+# Federal Trademark Application Draft — VOLTAGE THOTH (software, Class 9/42)
 
-> Fill the `[BRACKETED]` fields. This is a preparation worksheet, NOT a submission.
-> You file it yourself at the USPTO Trademark Center (uspto.gov). General info, not legal advice.
-
-> ⚠️ **READ `CLEARANCE_SEARCH_FINDINGS.md` FIRST.** "THOTH" collides with several
-> existing software projects — including a **registered** THOTH TECH LLC mark
-> (Class 9 educational software) and a live "Thoth" local-first AI assistant.
-> A plain-word "THOTH" application in Class 9/42 risks a likelihood-of-confusion
-> office action and is NOT recommended without the steps below. Filing fees are
-> **non-refundable**.
-
-## 0. Before you file (strongly recommended)
-- [ ] Consider a **more distinctive mark** (coined name, or THOTH + unique stylized logo/trade dress), OR
-- [ ] Get a quick **IP-attorney consult**, OR
-- [ ] If filing anyway, prepare to argue dissimilarity of goods / acquired distinctiveness.
+> Draft only. Fill the bracketed fields, then file at
+> https://www.uspto.gov/trademarks/apply (TEAS). Fees: ~$250-$350 per class
+> (verify the current USPTO fee schedule). Not legal advice.
 
 ## 1. Mark
-- Mark name: `THOTH`
-- Mark type: [ ] Standard character (plain text)   [x] Special form (logo / stylized) — *recommended to reduce conflict*
-- Description of mark (required only for logos): `[describe your THOTH logo/stylization]`
+- **Mark type:** [Standard Character (word mark)]  — recommended for VOLTAGE THOTH
+- **Mark name:** VOLTAGE THOTH
+- **Description (for logos):** [If you file a Special Form / logo, describe it here]
 
 ## 2. Owner
-- Owner name: `[LEGAL OWNER — your name or the entity behind ProjectSoulbyTmb]`
-- Entity type: [ ] Individual   [ ] LLC   [ ] Corporation   [ ] Other
-- Address: `[street, city, state, ZIP, country]`
-- Email: `[you@example.com]`  (USPTO sends all legal notices here — keep it current)
+- **Owner name:** [YOUR LEGAL NAME or ENTITY]
+- **Address:** [STREET, CITY, STATE, COUNTRY]
+- **Entity type:** [Individual / LLC / Corp]
 
 ## 3. Filing basis
-- [x] **1(a) Use in commerce** — first use asserted 2026-08-27. Provide dates + specimen below.
-- [ ] **1(b) Intent-to-use** — not yet using.
+- [X] §1(a) Use in commerce — date of first use: 2026-08-27
+      Date of first use anywhere: 2026-08-27
+- [ ] §1(b) Intent-to-use (if not yet used)
 
-## 4. Dates (required for 1(a))
-- First use anywhere: `2026-08-27`
-- First use in commerce: `2026-08-27`
-> Verify these against the note in `TRADEMARK_EVIDENCE_LOG.md`.
+## 4. Goods/Services
+- **Class 9:** Downloadable computer software for operating-system kernels, namely,
+  local-first autonomic operator software that manages, routes, and grants access to
+  cooperating software modules.
+- **Class 42:** Providing temporary use of non-downloadable software; technical support
+  services for local-first operating-system kernels.
+  (List only what you actually provide. Each class is a separate fee.)
 
-## 5. Goods & class
-Recommended classes for THOTH (software):
-- **Class 9** — downloadable software / autonomous-kernel software
-- **Class 42** — SaaS / software-as-a-service / cloud services (if applicable)
+## 5. Specimen (§1(a))
+- File a screenshot/PDF showing VOLTAGE THOTH used as a brand on a public page
+  (e.g., the product README header, a published site, or an installer).
+- Specimen on file: `TRADEMARK_EVIDENCE_LOG.md` →
+  `2026-08-27_ProjectSoulbyTmb_voltage-thoth_README.md` (public GitHub README
+  displaying "VOLTAGE THOTH™").
 
-Example identifications:
-- Class 9: "Downloadable computer software for operating-system kernel and operator automation."
-- Class 42: "Software-as-a-service (SaaS) featuring autonomous operator and automation services."
+## 6. Declaration
+I believe the applicant is the owner of the mark; to the best of my knowledge and
+belief, no other person has the right to use the mark in commerce; and the mark is
+in use in commerce on or in connection with the goods/services listed.
 
-## 6. Specimen (required for 1(a))
-A real example showing the mark used as a *brand* (source identifier): a screenshot
-of the olympos README / THOTH docs page where "THOTH" appears as a product name.
-Save it as `screenshot_20260827.png` (see `TRADEMARK_EVIDENCE_LOG.md`) and upload it
-at filing. Repo URL: https://github.com/ProjectSoulbyTmb/olympos
+## 7. Fees
+- ~$250-$350 per class via TEAS (verify current schedule). Pay only after the gating
+  note below is resolved in your favor.
 
-## 7. Fee (2026 electronic — verify at uspto.gov/trademark-fee-information)
-- Base application: **$350 per class** (+ possible $100–$200 surcharges for
-  incomplete info / free-form description).
-- Example: 2 classes (9 + 42) = **$700** base. **Non-refundable** — see the §2(d) risk in `CLEARANCE_SEARCH_FINDINGS.md` first.
+## ⚠️ Gating note (read before paying USPTO fees)
+Plain "THOTH" faces a likely §2(d) refusal — a senior registered "THOTH" mark
+(THOTH TECH LLC, Class 9) and a same-category live project (siddsachar/Thoth,
+local-first AI assistant) exist. See `CLEARANCE_SEARCH_FINDINGS.md`.
 
-## 8. How to file (pro se, no lawyer)
-1. Create a USPTO.gov account (Trademark Center).
-2. Start an application → choose the base application → enter the fields above.
-3. Upload specimen(s) and pay the fee.
-4. Save your **serial number**. After approval + publication you receive a
-   **registration date** — then run:
-   `pwsh ./trademark-deadlines.ps1 -RegistrationDate <issued> -Classes <n>`
-
-## 9. Declaration (you certify)
-"I believe the applicant is the owner of the mark; to the best of my knowledge
-the mark is in use in commerce and not merely descriptive; and all statements
-made herein are true."
-
----
-### Status
-Common-law ™ record is established in `TRADEMARK_EVIDENCE_LOG.md` (free, valid).
-Federal filing is **prepared but gated** on resolving the clearance conflict above.
+**Decision: file as the composite VOLTAGE THOTH** (see `MARK_VARIANTS.md`). The
+composite is judged as a whole, so adding our own "VOLTAGE" OS brand materially
+reduces likelihood-of-confusion risk versus plain "THOTH". Still, before paying
+fees, do ONE of:
+  (a) get a quick IP-attorney consult, or
+  (b) run a paid knock-out search.
+The free common-law ™ recorded in `TRADEMARK_EVIDENCE_LOG.md` is valid regardless
+and costs $0.

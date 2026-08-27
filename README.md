@@ -10,7 +10,7 @@ No lawyer, no paid tools, no mandatory external accounts.
 | `TRADEMARK_EVIDENCE_LOG.md` | Your free "registration": log first use + keep specimens. |
 | `CEASE_AND_DESIST_TEMPLATE.md` | Enforce your mark yourself, for free. |
 | `trademark-deadlines.ps1` | Free offline tracker for federal Section 8 / 9 / 15 deadlines. |
-| `capture-specimen.ps1` | Auto-captures a dated THOTH specimen (gh api / local / URL) and logs it. |
+| `capture-specimen.ps1` | Auto-captures a dated VOLTAGE THOTH specimen (gh api / local / URL) and logs it. |
 | `README.md` | This file. |
 
 ## Independence guarantees (nothing paid, no lock-in)
@@ -22,19 +22,19 @@ No lawyer, no paid tools, no mandatory external accounts.
   deadline **offline** — no paid docketing service needed.
 
 ## Start now (common-law, $0)
-1. Pick a strong, non-generic name. Run the free search (Step 2 of `TRADEMARK_FREE.md`).
+1. Pick a strong, non-generic name (this kit is pre-filled for **VOLTAGE THOTH** — see `MARK_VARIANTS.md`). Run the free search (Step 2 of `TRADEMARK_FREE.md`).
 2. Publish your software using the name with **™**. Fill in `TRADEMARK_EVIDENCE_LOG.md`
    and save the referenced specimen files (screenshots, receipt, repo description).
 3. Set one yearly calendar reminder: "Confirm ™ still in use + re-run search."
 
-## Auto-save specimens (THOTH)
-Run the capture script whenever you publish THOTH somewhere new; it saves a dated
+## Auto-save specimens (VOLTAGE THOTH)
+Run the capture script whenever you publish VOLTAGE THOTH somewhere new; it saves a dated
 copy and logs it automatically:
 
 ```powershell
 pwsh ./capture-specimen.ps1 -Commit
 # or capture a specific public page/file:
-pwsh ./capture-specimen.ps1 -Source https://example.com/thoth -Commit
+pwsh ./capture-specimen.ps1 -Source https://example.com/voltage-thoth -Commit
 ```
 
 The script resolves the mark-in-use via authenticated `gh api` (works for private
