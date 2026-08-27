@@ -44,13 +44,13 @@ $saved = $false
 
 if ($Source) {
   if (Test-Path $Source) {
-    $dest = Join-Path $OutDir "${today}_$(($Repo -replace '/','_'))_README.md"
+    $dest = Join-Path $OutDir "${today}_$([System.IO.Path]::GetFileNameWithoutExtension($Source)).md"
     Copy-Item -Path $Source -Destination $dest -Force
     $where = "Local file: $Source"
     $saved = $true
     Write-Host "Saved specimen (local copy) -> $dest" -ForegroundColor Green
   } else {
-    $dest = Join-Path $OutDir "${today}_specimen.html"
+    $dest = Join-Path $OutDir "${today}_$([System.IO.Path]::GetFileNameWithoutExtension($Source)).html"
     Write-Host "Capturing: $Source" -ForegroundColor Cyan
     Invoke-WebRequest -Uri $Source -OutFile $dest -Headers @{ 'User-Agent' = 'trademark-kit' }
     $where = $Source
