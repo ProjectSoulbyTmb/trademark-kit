@@ -10,6 +10,7 @@ No lawyer, no paid tools, no mandatory external accounts.
 | `TRADEMARK_EVIDENCE_LOG.md` | Your free "registration": log first use + keep specimens. |
 | `CEASE_AND_DESIST_TEMPLATE.md` | Enforce your mark yourself, for free. |
 | `trademark-deadlines.ps1` | Free offline tracker for federal Section 8 / 9 / 15 deadlines. |
+| `capture-specimen.ps1` | Auto-captures a dated THOTH specimen (gh api / local / URL) and logs it. |
 | `README.md` | This file. |
 
 ## Independence guarantees (nothing paid, no lock-in)
@@ -25,6 +26,20 @@ No lawyer, no paid tools, no mandatory external accounts.
 2. Publish your software using the name with **™**. Fill in `TRADEMARK_EVIDENCE_LOG.md`
    and save the referenced specimen files (screenshots, receipt, repo description).
 3. Set one yearly calendar reminder: "Confirm ™ still in use + re-run search."
+
+## Auto-save specimens (THOTH)
+Run the capture script whenever you publish THOTH somewhere new; it saves a dated
+copy and logs it automatically:
+
+```powershell
+pwsh ./capture-specimen.ps1 -Commit
+# or capture a specific public page/file:
+pwsh ./capture-specimen.ps1 -Source https://example.com/thoth -Commit
+```
+
+The script resolves the mark-in-use via authenticated `gh api` (works for private
+repos), a local file, or any URL, and appends a row to `TRADEMARK_EVIDENCE_LOG.md`.
+A commented Task Scheduler snippet at the bottom of the script lets you run it weekly.
 
 ## Optional federal registration later
 Self-file at USPTO.gov (Trademark Center) as *pro se* (no lawyer). The only
