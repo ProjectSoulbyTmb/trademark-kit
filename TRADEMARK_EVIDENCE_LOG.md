@@ -27,8 +27,9 @@ below automatically.
 
 | Date       | Where used (URL / file / description)              | Specimen file / link                                    |
 |------------|----------------------------------------------------|---------------------------------------------------------|
-| 2026-08-27 | Public brand README (VOLTAGE THOTH)                | 2026-08-27_ProjectSoulbyTmb_voltage-thoth_README.md    |
-| 2026-08-27 | Kernel design doc naming THOTH (within VOLTAGE OS) | 2026-08-27_DESIGN.md                                    |
+| 2026-08-27 | Local file: D:\THOTH\STRATEGY.md | 2026-08-27_STRATEGY.md |
+| 2026-08-27 | Public brand README — ProjectSoulbyTmb/voltage-thoth (VOLTAGE THOTH) | 2026-08-27_ProjectSoulbyTmb_voltage-thoth_README.md |
+| 2026-08-27 | Local file — D:\THOTH\DESIGN.md (THOTH kernel doc, within VOLTAGE OS)  | 2026-08-27_DESIGN.md                                 |
 
 ## Usage notes
 - Always display the mark with **™** (never ® until federally registered).

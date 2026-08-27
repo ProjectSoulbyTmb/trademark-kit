@@ -38,8 +38,22 @@ pwsh ./capture-specimen.ps1 -Source https://example.com/voltage-thoth -Commit
 ```
 
 The script resolves the mark-in-use via authenticated `gh api` (works for private
-repos), a local file, or any URL, and appends a row to `TRADEMARK_EVIDENCE_LOG.md`.
-A commented Task Scheduler snippet at the bottom of the script lets you run it weekly.
+repos), a local file, or any URL, and appends a row to `TRADEMARK_EVIDENCE_LOG.md`
+(idempotent — re-running the same source won't duplicate the row).
+
+### Set-and-forget auto-capture
+`auto-capture.ps1` watches a list of targets (the public `voltage-thoth` page and
+your local `D:\THOTH` docs), runs `capture-specimen.ps1` for each, then makes **one**
+commit (+ push with `-Push`). Schedule it weekly so any new VOLTAGE THOTH publication
+is captured automatically:
+
+```powershell
+pwsh ./auto-capture.ps1 -Push
+```
+
+Edit the `$targets` list in `auto-capture.ps1` to add any new URL/file where you
+publish VOLTAGE THOTH. The Task Scheduler snippet at the bottom of that script
+registers it to run automatically.
 
 ## Optional federal registration later
 Self-file at USPTO.gov (Trademark Center) as *pro se* (no lawyer). The only

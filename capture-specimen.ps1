@@ -94,12 +94,19 @@ if ($Source) {
 }
 
 # Append a row to the evidence log, right after the table separator.
+# Dedup by SOURCE so re-running (e.g. on a schedule) never creates duplicate rows.
 $fileName = Split-Path $dest -Leaf
 $row = "| $today | $where | $fileName |"
+$srcKey = if ($Source) { $Source } else { $Repo }
+
 if (Test-Path $LogFile) {
   $lines = Get-Content $LogFile
-  if ($lines -contains $row) {
-    Write-Host "Row already present; skipped." -ForegroundColor Yellow
+  $dup = $false
+  foreach ($l in $lines) {
+    if ($l -match [regex]::Escape($srcKey)) { $dup = $true; break }
+  }
+  if ($dup) {
+    Write-Host "Row for '$srcKey' already present; skipped logging (specimen file refreshed)." -ForegroundColor Yellow
   } else {
     $out = @(); $inserted = $false
     for ($i = 0; $i -lt $lines.Count; $i++) {
@@ -115,14 +122,24 @@ if (Test-Path $LogFile) {
 }
 
 if ($Commit) {
-  git add -A
-  git commit -q -m "trademark-kit: auto-capture THOTH specimen $today"
-  Write-Host "Committed." -ForegroundColor Green
+  $st = git status --porcelain
+  if ($st) {
+    git add -A
+    git commit -q -m "trademark-kit: auto-capture VOLTAGE THOTH specimen $today"
+    Write-Host "Committed." -ForegroundColor Green
+  } else {
+    Write-Host "Nothing changed; nothing to commit." -ForegroundColor Yellow
+  }
 }
 
 <#
-SCHEDULE (optional, Windows, run as admin):
-  $action = New-ScheduledTaskAction -Execute 'pwsh' -Argument '-ExecutionPolicy Bypass -File "<ABS>/capture-specimen.ps1" -Commit'
+SCHEDULE (optional, Windows, run as admin) — recommended: use auto-capture.ps1,
+which watches multiple targets and commits once:
+  $action = New-ScheduledTaskAction -Execute 'pwsh' -Argument '-ExecutionPolicy Bypass -File "<ABS>/auto-capture.ps1" -Push'
   $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At 9am
-  Register-ScheduledTask -TaskName 'THOTH-Trademark-Specimen' -Action $action -Trigger $trigger -Force
+  Register-ScheduledTask -TaskName 'VOLTAGE-THOTH-Specimen' -Action $action -Trigger $trigger -Force
+
+Single-target equivalent (this script only):
+  $action = New-ScheduledTaskAction -Execute 'pwsh' -Argument '-ExecutionPolicy Bypass -File "<ABS>/capture-specimen.ps1" -Commit'
+  Register-ScheduledTask -TaskName 'VOLTAGE-THOTH-Specimen' -Action $action -Trigger $trigger -Force
 #>
